@@ -14,8 +14,8 @@
     encode: function (n) {
       var hi, lo;
       n  = (n + 0x2000) << 1; // left shift 1 bit to clear msb
-      lo = (n & 0x00ff) >> 1; // mask to pack the lo byte
-      hi = n >> 8;            // pack the hi byte
+      lo = (n & 0x00ff) >> 1; // pack the lo byte
+      hi = (n & 0xff00) >> 8; // pack the hi byte
       return _toHex(hi) + _toHex(lo); // combine encoded values as hex string
     },
 
@@ -28,3 +28,4 @@
   }
 
 }(typeof module !== 'undefined' ? module.exports : window));
+  
